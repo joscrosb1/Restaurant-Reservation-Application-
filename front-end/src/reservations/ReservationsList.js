@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 //import components
 import ReservationCancel from "./ReservationCancel";
 
-const ReservationsList = ({ reservations, date }) => {
+const ReservationsList = ({ reservations, date, cancelHandler }) => {
 	const tableRows = reservations.map((reservation) => (
 		<tr key={reservation.reservation_id}>
 			<th scope="row">{reservation.reservation_id}</th>
@@ -38,7 +38,7 @@ const ReservationsList = ({ reservations, date }) => {
 						</Link>
 					</td>
 					<td>
-						<ReservationCancel reservation_id={reservation.reservation_id} />
+					<ReservationCancel reservation_id={reservation.reservation_id} cancelHandler={cancelHandler} />
 					</td>
 				</>
 			) : (
