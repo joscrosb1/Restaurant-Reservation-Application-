@@ -1,6 +1,7 @@
 /** @format */
 
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 //import components
 import ReservationCancel from "./ReservationCancel";
@@ -20,21 +21,21 @@ const ReservationsList = ({ reservations, date }) => {
 			</td>
 			<td>
 				{reservation.status === "booked" && (
-					<a
+					<Link
 						className="btn btn-success"
-						href={`/reservations/${reservation.reservation_id}/seat`}>
+						to={`/reservations/${reservation.reservation_id}/seat`}>
 						Seat
-					</a>
+					</Link>
 				)}
 			</td>
 			{reservation.status === "booked" || reservation.status === "seated" ? (
 				<>
 					<td>
-						<a
+						<Link
 							className="btn btn-primary"
-							href={`/reservations/${reservation.reservation_id}/edit`}>
+							to={`/reservations/${reservation.reservation_id}/edit`}>
 							Edit
-						</a>
+						</Link>
 					</td>
 					<td>
 						<ReservationCancel reservation_id={reservation.reservation_id} />
